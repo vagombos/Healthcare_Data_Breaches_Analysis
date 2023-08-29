@@ -1,5 +1,5 @@
 <a id="healthcare-data-breaches-analysis"></a>
-# Healthcare Data Breaches Analysis
+# Analysis of Healthcare Data Breaches 
 ### Case Study Using US Dept. of Health and Human Services (USHHS) Open Source Data from July 19, 2021 to August 10, 2023  
 ##### - [Statement of Business Task](#statement-of-business-task)
 ##### - [Description of Data Sources](#description-of-data-sources)
