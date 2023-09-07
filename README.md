@@ -20,7 +20,123 @@ The ["breach.csv"](data/breach_report.csv) data download from the U.S. HHS site 
 #### Initial Summaries and Overview  
   * Preview (head function) of first lines of data within this dataframe indicates the fields and the type of content that might be of interest:  
 
-![data_head](images/data_head.html)  
+```html
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>name_of_covered_entity</th>
+      <th>state</th>
+      <th>covered_entity_type</th>
+      <th>individuals_affected</th>
+      <th>breach_submission_date</th>
+      <th>type_of_breach</th>
+      <th>location_of_breached_information</th>
+      <th>business_associate_present</th>
+      <th>Email</th>
+      <th>Network Server</th>
+      <th>Other</th>
+      <th>Paper/Films</th>
+      <th>Desktop Computer</th>
+      <th>Electronic Medical Record</th>
+      <th>Laptop</th>
+      <th>Other Portable Electronic Device</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>iTrust Wellness Group</td>
+      <td>SC</td>
+      <td>Healthcare Provider</td>
+      <td>981</td>
+      <td>8/10/2023</td>
+      <td>Hacking/IT Incident</td>
+      <td>Email</td>
+      <td>No</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Madera County</td>
+      <td>CA</td>
+      <td>Health Plan</td>
+      <td>1146</td>
+      <td>8/9/2023</td>
+      <td>Unauthorized Access/Disclosure</td>
+      <td>Email</td>
+      <td>No</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>PCC Pediatric EHR Solutions</td>
+      <td>VT</td>
+      <td>Business Associate</td>
+      <td>520</td>
+      <td>8/9/2023</td>
+      <td>Unauthorized Access/Disclosure</td>
+      <td>Email</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Premera Blue Cross</td>
+      <td>WA</td>
+      <td>Health Plan</td>
+      <td>33212</td>
+      <td>8/8/2023</td>
+      <td>Hacking/IT Incident</td>
+      <td>Network Server</td>
+      <td>Yes</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Redwood Coast Regional Center</td>
+      <td>CA</td>
+      <td>Healthcare Provider</td>
+      <td>1345</td>
+      <td>8/7/2023</td>
+      <td>Hacking/IT Incident</td>
+      <td>Email</td>
+      <td>No</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+```
+ 
 
   * A summary of the top ten states by count and % of breaches for the entire time period (note that bottom two were tied):
     
