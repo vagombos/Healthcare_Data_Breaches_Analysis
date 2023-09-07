@@ -20,7 +20,6 @@ The ["breach.csv"](data/breach_report.csv) data download from the U.S. HHS site 
 #### Initial Summaries and Overview  
   * Preview (head function) of first lines of data within this dataframe indicates the fields and the type of content that might be of interest:  
 
-```html
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -135,8 +134,6 @@ The ["breach.csv"](data/breach_report.csv) data download from the U.S. HHS site 
     </tr>
   </tbody>
 </table>
-```
- 
 
   * A summary of the top ten states by count and % of breaches for the entire time period (note that bottom two were tied):
     
