@@ -15,10 +15,14 @@ This open public data source is provided by the U.S. Department of Health and Hu
 The data range selected included cases currently under investigation, from July 19, 2021 to August 10, 2023.  
 
 ### Data ETL Analyses and Results
-The ["breach.csv"](data/breach_report.csv) data download from the U.S. HHS site was imported into Python with the pandas and numpy libraries. Rows with null values were dropped, and further transformations for particular analyses/visualizations included filtering data for "Hacking/IT Incidents", splitting the data into train/test sets (for predictive models), aggregating counts by month and year, and text-to-column creation of new columns from the contents of a single column with multiple possible categories ("location_of_breached_information"). The full code for these transformations and analyses can be found in the Jupyter Notebook file on this site's data folder ["US_HSS_SecurityBreachAnalysis"](data/US_HSS_SecurityBreachAnalysis.ipynb).  
+The ["breach.csv"](data/breach_report.csv) data download from the U.S. HHS site was imported into Python with the pandas and numpy libraries. Rows with null values were dropped, and further transformations for particular analyses/visualizations included filtering data for "Hacking/IT Incidents", splitting the data into train/test sets (for predictive models), aggregating counts by month and year, and text-to-column creation of new columns from the contents of a single column with multiple possible categories ("location_of_breached_information"). Because one column ('web_description') was mostly null, it was also excluded from the dataframe. The complete cleaned up dataframe resulted in 900 rows. The full code for these transformations and analyses can be found in the Jupyter Notebook file on this site's data folder ["US_HSS_SecurityBreachAnalysis"](data/US_HSS_SecurityBreachAnalysis.ipynb).  
 
 #### Initial Summaries and Overview  
   * Preview (head function) of first lines of data within this dataframe indicates the fields and the type of content that might be of interest:  
+[Dataframe head](images/data_head.html)  
+  * A summary of the top ten states by count and % of breaches for the entire time period (note that bottom two were tied):
+ [Top 10 States](images/Top10States.PNG)  
+
 
 ---
 ### References 
