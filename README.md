@@ -138,6 +138,51 @@ The ["breach.csv"](data/breach_report.csv) data download from the U.S. HHS site 
   * A summary of the top ten states by count and % of breaches for the entire time period (note that bottom two were tied):
     
  ![Top 10 States](images/Top10States.PNG)  
+ 
+While, unsurprisingly the top five states happen to also be the top five in population, what is interesting to note is that the rankings in breaches are not a one-to-one match with population ranks (compare the above table to this ranked list: https://www.statsamerica.org/sip/rank_list.aspx?rank_label=pop1). New York and Massachucetts for example are over-represented in breaches based on their ranks for population; meanwhile, California, Florida, Georgia, and Michigan are under-represented in the number of breaches when their population rank is taken into consideration.  
+Perhaps a per capita metric (Number of Breaches per Million People) could be more telling. The following code was used to calculate the metric:  
+```python
+# Obtain the population data for each state (from StatsAmerica.org)
+population = {
+    'CA': 39029342,'TX': 30029572,'FL': 22244823,'NY': 19677151,'PA': 12972008,'IL': 12812032,'OH': 11756058,
+    'GA': 10912876,'NC': 10698973,'MI': 10034113,'NJ': 9288994,'VA': 8683619,'WA': 7785786,'AZ': 7359197,
+    'TN': 7051339,'MA': 6981974,'IN': 6833037,'MO': 6177957,'MD': 6177224,'WI': 5893718,'CO': 5773714,
+    'MN': 5706494,'SC': 5118425,'AL': 5024279,'LA': 4657757,'KY': 4505836,'OR': 4237256,'OK': 3959353,
+    'CT': 3605944,'UT': 3271616,'IA': 3179849,'NV': 3179849,'AK': 731545,'MS': 2965997,'KS': 2913314,
+    'NM': 2117522,'NE': 1961504,'ID': 1893147,'WV': 1778070,'HI': 1461933,'NH': 1377529,'ME': 1377529,
+    'MT': 1086767,'RI': 1097379,'DE': 1001687,'SD': 886667,'ND': 770026,'DC': 705749,'VT': 643503
+}
+
+# Calculate the "Breaches per Million People" metric
+state_summary['Breaches per Million People'] = (state_summary['Count'] / state_summary.index.map(population)) * 1_000_000
+
+# Sort the DataFrame by the calculated metric
+state_summary = state_summary.sort_values(by='Breaches per Million People', ascending=False)
+
+# Display the top 10 states by the metric
+top_10_states = state_summary.head(10)
+print("Top 10 States by Breaches per Million People:")
+print(top_10_states)
+```
+Which results in the following new distribution of Top 10 States by Breaches per Million:  
+```
+Top 10 States by Breaches per Million People:
+    Count  % of Total  Breaches per Million People
+NH     11    1.222222                     7.985313
+RI      7    0.777778                     6.378835
+KS     18    2.000000                     6.178531
+MA     42    4.666667                     6.015491
+DE      5    0.555556                     4.991579
+IN     32    3.555556                     4.683130
+NE      9    1.000000                     4.588316
+WV      8    0.888889                     4.499260
+CT     16    1.777778                     4.437118
+AK      3    0.333333                     4.100910
+```
+
+
+
+
 
 
 ---
