@@ -19,9 +19,12 @@ The ["breach.csv"](data/breach_report.csv) data download from the U.S. HHS site 
 
 #### Initial Summaries and Overview  
   * Preview (head function) of first lines of data within this dataframe indicates the fields and the type of content that might be of interest:  
-[Dataframe head](images/data_head.html)  
+
+![data_head](images/data_head.html)  
+
   * A summary of the top ten states by count and % of breaches for the entire time period (note that bottom two were tied):
- [Top 10 States](images/Top10States.PNG)  
+    
+ ![Top 10 States](images/Top10States.PNG)  
 
 
 ---
