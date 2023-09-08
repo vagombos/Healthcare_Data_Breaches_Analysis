@@ -183,9 +183,17 @@ As another way of visualizing this per-capita metric geographically, Power BI wa
 
 * Geographic heat map of lower 48 states by Breaches per Million People (based on state population)  
   - At 7.99, **NH** had the highest Breaches per million people and was 1,140% higher than **LA**, which had the lowest Breaches per million people at 0.64.
-  - Additionally, as can be seen in the heat map, the greatest concentration of breaches per million people happened in the Northeast and Midwest (NE and KS), while least happened in the mid-South region (LA & AR) and West.  
+   
 ![US_GeoMap_Breach_per_million](images/US_GeoMap_Breach_per_million.PNG)
+As can be seen in the heat map, the greatest concentration of breaches per million people happened in the Northeast and Midwest (NE and KS), while least was in the mid-South region (LA & AR) and West.
 
+* Relationship between Per Capita Breaches (per million) and Total Number of Individuals Affected
+  - Individual states were plotted by the per capita number of breaches and the total number of individuals affected:
+    
+ ![PerCapitaBreach_x_IndivsAffected](images/PerCapitaBreach_x_IndivsAffected.PNG)
+
+Although no relationship between these variables was found (*r*(49) = -0.02, *p*=0.05), upon investigating the extremes on either side of an imaginary diagonal (that splits the lower left from upper right)  those states with relatively poor performance (i.e., states with higher per capita breaches AND more individuals affected) versus states with better performance (i.e., lower per capita breaches AND fewer individuals involved) are displayed.  
+States such as LA, MS, and NV had relatively fewer breaches for their population AND fewer individuals affected when those breaches did occur. States such as TN, MA, and NH were poor performers (with either having many people affected and a moderate per capita breach number, like TN, or many per-capita breaches though fewer individuals affected, like NH; MA was a worst balance between many per capita breaches AND many individuals affected).
 
 
 
