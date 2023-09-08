@@ -179,7 +179,12 @@ WV      8    0.888889                     4.499260
 CT     16    1.777778                     4.437118
 AK      3    0.333333                     4.100910
 ```
+As another way of visualizing this per-capita metric geographically, Power BI was used directly on the breaches.csv data source, with the Breaches per Million People metric calculated within PowerQuery. Within PowerQuery, the same transformations that were applied in Python (e.g., removing rows with nulls) were performed in PowerBI so it was an equivalent dataset. The PowerBI file can be downloaded here for inspection.
 
+* Geographic heat map of lower 48 states by Breaches per Million People (based on state population)  
+  - At 7.99, **NH** had the highest Breaches per million people and was 1,140% higher than **LA**, which had the lowest Breaches per million people at 0.64.
+  - Additionally, as can be seen in the heat map, the greatest concentration of breaches per million people happened in the Northeast and Midwest (NE and KS), while least happened in the mid-South region (LA & AR) and West.  
+![US_GeoMap_Breach_per_million](images/US_GeoMap_Breach_per_million.PNG)
 
 
 
