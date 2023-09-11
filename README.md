@@ -226,12 +226,12 @@ Improper Disposal                   5    0.555556
 Because Hacking/IT Incidents are the most frequent type of cybersecurity breach in this dataset, the dataframe was filtered to these types of events. For Hacking/IT Incidents alone, Network Servers, Email, and Electronic Health Records were the most frequent place where the incident occurred:
 ![Hacking_Incidents_by_Location](images/HackingIncidentsbyBreachLocation.png)
 
-**Time Series/Seasonality Factors**  
 
 
+#### Conclusions and Insights  
 
-<sub>[Back to top](#healthcare-data-breaches-analysis)</sub>
 
+<sub>[Back to top](#healthcare-data-breaches-analysis)</sub>  
 ---
 ### References 
 [^1]: Brodkin, J. (2023, August 4). Our health care system may soon receive a much-needed cybersecurity boost. Ars Technica. Retrieved from https://arstechnica.com/information-technology/2023/08/our-health-care-system-may-soon-receive-a-much-needed-cybersecurity-boost/
