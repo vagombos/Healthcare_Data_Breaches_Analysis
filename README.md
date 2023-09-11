@@ -17,7 +17,7 @@ The data range selected included cases currently under investigation, from July 
 ### Data ETL Analyses and Results
 The ["breach.csv"](data/breach_report.csv) data download from the U.S. HHS site was imported into Python with the pandas and numpy libraries. Rows with null values were dropped, and further transformations for particular analyses/visualizations included filtering data for "Hacking/IT Incidents", splitting the data into train/test sets (for predictive models), aggregating counts by month and year, and text-to-column creation of new columns from the contents of a single column with multiple possible categories ("location_of_breached_information"). Because one column ('web_description') was mostly null, it was also excluded from the dataframe. The complete cleaned up dataframe resulted in 900 rows. The full code for these transformations and analyses can be found in the Jupyter Notebook file on this site's data folder ["US_HSS_SecurityBreachAnalysis"](data/US_HSS_SecurityBreachAnalysis.ipynb).  
 
-#### Initial Summaries and Overview  
+#### Initial Overview and Summary of Results  
   * Preview (head function) of first lines of data within this dataframe indicates the fields and the type of content that might be of interest:  
 
 <table border="1" class="dataframe">
@@ -135,6 +135,8 @@ The ["breach.csv"](data/breach_report.csv) data download from the U.S. HHS site 
   </tbody>
 </table>
 
+**Geographical Factors**    
+
   * A summary of the top ten states by count and % of breaches for the entire time period (note that bottom two were tied):
     
  ![Top 10 States](images/Top10States.PNG)  
@@ -193,7 +195,39 @@ As can be seen in the heat map, the greatest concentration of breaches per milli
  ![PerCapitaBreach_x_IndivsAffected](images/PerCapitaBreach_x_IndivsAffected.PNG)
 
 Although no relationship between these variables was found (*r*(49) = -0.02, *p*=0.05), upon investigating the extremes on either side of an imaginary diagonal (that splits the lower left from upper right)  those states with relatively poor performance (i.e., states with higher per capita breaches AND more individuals affected) versus states with better performance (i.e., lower per capita breaches AND fewer individuals involved) are displayed.  
-States such as LA, MS, and NV had relatively fewer breaches for their population AND fewer individuals affected when those breaches did occur. States such as TN, MA, and NH were poor performers (with either having many people affected and a moderate per capita breach number, like TN, or many per-capita breaches though fewer individuals affected, like NH; MA was a worst balance between many per capita breaches AND many individuals affected).
+States such as LA, MS, and NV had relatively fewer breaches for their population AND fewer individuals affected when those breaches did occur. States such as TN, MA, and NH were poor performers (with either having many people affected and a moderate per capita breach number, like TN, or many per-capita breaches though fewer individuals affected, like NH; MA was a worst balance between many per capita breaches AND many individuals affected).  
+
+**Data Source Factors**  
+*Where are these data breaches coming from? How are they categorized?*
+Knowing the kinds of breaches that were recorded--where the most occurred--may help guide further analyses; data can be filtered further down to the most likely scenarios.  
+* The field "covered_entity_type" provides information for what kind of provider the breach came from. Viewing the distribution of records, the majority are from Healthcare Providers:
+```
+Summary table for 'covered_entity_type' column:
+                           Count  % of Total
+Healthcare Provider          569   63.222222
+Business Associate           204   22.666667
+Health Plan                  126   14.000000
+Healthcare Clearing House      1    0.111111
+```
+* The field "type_of_breach" provides the kind of cybersecurity incident these were categorized into. Hacking/IT Incidents were the large majority of breaches listed:
+  ```
+  Summary table for 'type_of_breach' column:
+                                Count  % of Total
+Hacking/IT Incident               728   80.888889
+Unauthorized Access/Disclosure    144   16.000000
+Theft                              17    1.888889
+Loss                                6    0.666667
+Improper Disposal                   5    0.555556
+```
+* The "location_of_breached_information" denotes where the breach of information occurred. Because this field could have multiple categories listed in one incident, a new updated dataframe was prepared that had these different categories split out into their own respective columns. A "Yes" or "No" entry was recorded for the category if was present on that cybersecurity incident. The vast majority of individuals affected occurred on Network Server breach locations:
+![Individuals_Affected_By_Location](images/Individuals_Affected_By_Location.PNG)
+
+Because Hacking/IT Incidents are the most frequent type of cybersecurity breach in this dataset, the dataframe was filtered to these types of events. For Hacking/IT Incidents alone, Network Servers, Email, and Electronic Health Records were the most frequent place where the incident occurred:
+![Hacking_Incidents_by_Location](images/HackingIncidentsbyBreachLocation.png)
+
+**Time Series/Seasonality Factors**  
+
+
 
 <sub>[Back to top](#healthcare-data-breaches-analysis)</sub>
 
