@@ -201,16 +201,17 @@ States such as LA, MS, and NV had relatively fewer breaches for their population
 *Where are these data breaches coming from? How are they categorized?*
 Knowing the kinds of breaches that were recorded--where the most occurred--may help guide further analyses; data can be filtered further down to the most likely scenarios.  
 * The field "covered_entity_type" provides information for what kind of provider the breach came from. Viewing the distribution of records, the majority are from Healthcare Providers:
-```
+```  
 Summary table for 'covered_entity_type' column:
                            Count  % of Total
 Healthcare Provider          569   63.222222
 Business Associate           204   22.666667
 Health Plan                  126   14.000000
 Healthcare Clearing House      1    0.111111
-```
+```  
+
 * The field "type_of_breach" provides the kind of cybersecurity incident these were categorized into. Hacking/IT Incidents were the large majority of breaches listed:
-  ```
+```  
   Summary table for 'type_of_breach' column:
                                 Count  % of Total
 Hacking/IT Incident               728   80.888889
