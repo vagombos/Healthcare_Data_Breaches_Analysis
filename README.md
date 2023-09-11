@@ -10,12 +10,18 @@
 ### Statement of Business Task
 Cybersecurity is important across domains, but the U.S. healthcare industry is particularly vulnerable, with many cybercriminal attacks in the last decade trying to take advantage of medical facilities' high stakes data for extortion.[^1] The current business task is to conduct an exploratory analysis, to find patterns and potential avenues for further inquiry, into one element of cybersecurity risk that criminals may take advantage of: breaches of unsecured protected health information.  
 
+<sub>[Back to top](healthcare-data-breaches-analysis)
+
 ### Description of Data Source
 This open public data source is provided by the U.S. Department of Health and Human Services (HHS) in accordance with section 13402(e)(4) of the HITECH Act (https://ocrportal.hhs.gov/ocr/breach/breach_report.jsf).
 The data range selected included cases currently under investigation, from July 19, 2021 to August 10, 2023.  
 
+<sub>[Back to top](healthcare-data-breaches-analysis)
+
 ### Data ETL Analyses and Results
 The ["breach.csv"](data/breach_report.csv) data download from the U.S. HHS site was imported into Python with the pandas and numpy libraries. Rows with null values were dropped, and further transformations for particular analyses/visualizations included filtering data for "Hacking/IT Incidents", splitting the data into train/test sets (for predictive models), aggregating counts by month and year, and text-to-column creation of new columns from the contents of a single column with multiple possible categories ("location_of_breached_information"). Because one column ('web_description') was mostly null, it was also excluded from the dataframe. The complete cleaned up dataframe resulted in 900 rows. The full code for these transformations and analyses can be found in the Jupyter Notebook file on this site's data folder ["US_HSS_SecurityBreachAnalysis"](data/US_HSS_SecurityBreachAnalysis.ipynb).  
+
+<sub>[Back to top](healthcare-data-breaches-analysis)
 
 #### Initial Summaries and Overview  
   * Preview (head function) of first lines of data within this dataframe indicates the fields and the type of content that might be of interest:  
@@ -195,8 +201,7 @@ As can be seen in the heat map, the greatest concentration of breaches per milli
 Although no relationship between these variables was found (*r*(49) = -0.02, *p*=0.05), upon investigating the extremes on either side of an imaginary diagonal (that splits the lower left from upper right)  those states with relatively poor performance (i.e., states with higher per capita breaches AND more individuals affected) versus states with better performance (i.e., lower per capita breaches AND fewer individuals involved) are displayed.  
 States such as LA, MS, and NV had relatively fewer breaches for their population AND fewer individuals affected when those breaches did occur. States such as TN, MA, and NH were poor performers (with either having many people affected and a moderate per capita breach number, like TN, or many per-capita breaches though fewer individuals affected, like NH; MA was a worst balance between many per capita breaches AND many individuals affected).
 
-
-
+<sub>[Back to top](healthcare-data-breaches-analysis)
 
 ---
 ### References 
