@@ -135,6 +135,20 @@ The ["breach.csv"](data/breach_report.csv) data download from the U.S. HHS site 
   </tbody>
 </table>
 
+**Institutional factors**  
+
+Which entities had the most breaches in terms of number of individuals affected?
+
+* The field 'covered_entity_type' provides 4 valid categories: Business Associate, Health Plan, Healthcare Clearing House, and Healthcare Provider. As can be seen in these two Power BI visualizations, there is a contrast between the overall number of breaches versus the entity types by the number of individuals affected:
+  
+![Entity Types](images/Entity_Types(NumBreaches_IndivAffected).PNG)
+
+* The name of the individual entities that reported the breaches are provided in the 'name_of_covered_entity' field. The following table shows the top named entities, sorted by the number of individuals affected by all breaches reported:
+
+![NameEntitiesTable](images/NameEntitiesTable.PNG)  
+
+Although Healthcare Providers have the most number of breaches reported, it is nearly evenly split between Business Associate and Healthcare Providers when considering the total number of individuals affected.  
+
 **Geographical Factors**    
 
   * A summary of the top ten states by count and % of breaches for the entire time period (note that bottom two were tied):
@@ -197,8 +211,8 @@ As can be seen in the heat map, the greatest concentration of breaches per milli
 Although no relationship between these variables was found (*r*(49) = -0.02, *p*=0.05), upon investigating the extremes on either side of an imaginary diagonal (that splits the lower left from upper right)  those states with relatively poor performance (i.e., states with higher per capita breaches AND more individuals affected) versus states with better performance (i.e., lower per capita breaches AND fewer individuals involved) are displayed.  
 States such as LA, MS, and NV had relatively fewer breaches for their population AND fewer individuals affected when those breaches did occur. States such as TN, MA, and NH were poor performers (with either having many people affected and a moderate per capita breach number, like TN, or many per-capita breaches though fewer individuals affected, like NH; MA was a worst balance between many per capita breaches AND many individuals affected).  
 
-**Data Source Factors**  
-*Where are these data breaches coming from? How are they categorized?*
+**Data Source/Target Factors**  
+*Where are these data breaches coming from? Which are the most vulnerable*
 Knowing the kinds of breaches that were recorded--where the most occurred--may help guide further analyses; data can be filtered further down to the most likely scenarios.  
 * The field "covered_entity_type" provides information for what kind of provider the breach came from. Viewing the distribution of records, the majority are from Healthcare Providers:
 ```  
@@ -226,10 +240,11 @@ Improper Disposal                   5    0.555556
 Because Hacking/IT Incidents are the most frequent type of cybersecurity breach in this dataset, the dataframe was filtered to these types of events. For Hacking/IT Incidents alone, Network Servers, Email, and Electronic Health Records were the most frequent place where the incident occurred:
 ![Hacking_Incidents_by_Location](images/HackingIncidentsbyBreachLocation.png)
 
-
-
-#### Conclusions and Insights  
-
+### Conclusions and Insights  
+The purpose of this analysis was exploratory, to find patterns that suggest areas of further inquiry into these data breaches in the healthcare sector. What notable results were found?  
+*  *Institutional factors* that were found from these data include the fact that, while most breaches were recorded from **Healthcare Providers**, when the total number of individuals affected by breaches were taken into consideration, **Business Associate** entity types were slightly more involved than Healthcare Providers. Furthermore, in the sorted list of named entities, **HCA Healthcare**, **Managed Care of North America (MCNA)**, and **PharMerica Corporation** were the top three based on number of individuals affected by breaches (approx. 11.3M, 8.8M, and 5.8M individuals affected respectively).
+*  *Geographical factors* play a role. While most breaches were predictably from states with the highest populations, when ranked according to a per-capita basis, the top 5 states with the most breaches per million residents were **NH, RI, KS, MA, & DE**.  Further, using this per-capita metric, when graphed as a heat map, the Northeast and Midwest regions of the United States stood out as having the most healthcare data breaches. Other states, as pointed out in a scatterplot from Power BI, like LA have relatively low levels of cybersecurity events, or like TN have moderate per-capita breach rates. Further investigation into local jurisdictions or technological resources in those states and regions may be beneficial to understand root causes.
+*  *Data source/target factors* also play a role in data breaches. Where these data breaches are coming from, or where hacking incidents are targeting the most, are **Network Servers, Email, & Electronic Medical Records**. Not only in terms of number of incidents, but also based on the number of individuals affected, Network Servers are the most likely targets/sources of breaches, followed by **Other** (various not-categorized), **Email**, and **Electronic Medical Records**.
 
 <sub>[Back to top](#healthcare-data-breaches-analysis)</sub>  
 ---
